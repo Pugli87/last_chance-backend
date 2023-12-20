@@ -1,8 +1,8 @@
 // controllers/index.js
 const products = require('./products');
-const login = require('./users')
+const auth = require('./auth');
 
 module.exports = {
   products,
-  login,
+  auth,
 };
