@@ -1,4 +1,4 @@
-const { loginUser: service } = require('../../service');
+const { auth: service } = require('../../service');
 const validSchema = require('../../models/userJoiSchema');
 
 const login = async (req, res) => {
