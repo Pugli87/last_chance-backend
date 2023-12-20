@@ -51,3 +51,4 @@ const getUserInfoPerDay = async (req, res) => {
 
 // Exporta la función para que pueda ser utilizada en otros archivos
 module.exports = getUserInfoPerDay;
+//
