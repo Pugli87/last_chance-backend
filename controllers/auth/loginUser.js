@@ -1,5 +1,5 @@
-const { loginUser: service } = require("../../service");
-const validSchema = require('../../models/userJoiSchema')
+const { loginUser: service } = require('../../service');
+const validSchema = require('../../models/userJoiSchema');
 
 const login = async (req, res) => {
   try {
@@ -7,13 +7,17 @@ const login = async (req, res) => {
     const body = req.body;
     const { error } = validSchema.loginJoiValidations(body);
     if (error !== undefined) {
-      return res.status(400).send({ message: 'Error de Joi u otra biblioteca de validación' });
+      return res
+        .status(400)
+        .send({ message: 'Error de Joi u otra biblioteca de validación' });
     } else {
       const result = await service.login(body);
       if (!result) {
-        return res.status(401).send({ message: 'Usuario o contraseña son incorrectos' })
+        return res
+          .status(401)
+          .send({ message: 'Usuario o contraseña son incorrectos' });
       } else {
-        return res.status(200).send(result)
+        return res.status(200).send(result);
       }
     }
   } catch (error) {
@@ -24,4 +28,4 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = login
+module.exports = login;
