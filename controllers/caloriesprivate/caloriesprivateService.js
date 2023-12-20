@@ -1,41 +1,21 @@
-const { ListNotFood } = require("../../models");
-const { ListFood } = require("../../models");
+const { calculateDailyCalories, getNonRecommendedFoods, saveDataToDatabase } = require('../services/caloriesService');
 
-const getUserData = async (userId) => {
+const privateEndpointHandler = async (req, res) => {
   try {
-    const user = await ListNotFood.findOne({ userId }).exec();
-    if (!user) throw new Error("User not found");
+    const userId = req.user._id;
+    const dailyCalories = await calculateDailyCalories(userId);
+    const nonRecommendedFoods = await getNonRecommendedFoods(userId);
 
-    return {
-      userNotFound: false,
-      peso: user.peso,
-      altura: user.altura,
-      edad: user.edad,
-      pesoDeseado: user.pesoDeseado,
-      finalWeight: user.finalWeight,
-    };
-  } catch (error) {
-    console.error("Error in getUserData:", error);
-    throw error;
-  }
-};
+    // Guarda la información en la base de datos (sustituye esto con tu lógica de base de datos)
+    await saveDataToDatabase(userId, dailyCalories, nonRecommendedFoods);
 
-const listNotFood = async (finalWeight) => {
-  try {
-    return await ListFood.find({
-      recomendado: false,
-      contenidoGrasas: { $gte: 10 },
-      contenidoAzucar: { $gte: 5 },
-      contenidoSodio: { $gte: 500 },
-      // ... otros criterios nutricionales
-    }).exec();
+    res.status(200).json({ dailyCalories, nonRecommendedFoods });
   } catch (error) {
-    console.error("Error in listNotFood:", error);
-    throw error;
+    console.error('Error in privateEndpointHandler:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
 module.exports = {
-  getUserData,
-  listNotFood,
+  privateEndpointHandler,
 };

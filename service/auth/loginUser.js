@@ -4,7 +4,7 @@ const User = require('../../models/userSchema');
 
 const login = async (data) => {
   try {
-    //Valida si el usuario existe
+    // Valida si el usuario existe
     const isUser = await User.findOne({
       email: data.email,
     })
@@ -12,12 +12,12 @@ const login = async (data) => {
       return
     }
 
-    //Valida si la contraseña es correcta
+    // Valida si la contraseña es correcta
     const isPassword = await bcrypt.compare(data.password, isUser.password);
     if (!isPassword) {
       return
     }
-    //Generar Token
+    // Generar Token
     const token = jwt.sign(
       {
         _id: isUser._id,
@@ -28,7 +28,7 @@ const login = async (data) => {
       {
         expiresIn: "1h",
       });
-    //Guardar token en el usuario
+    // Guardar token en el usuario
     await User.findOneAndUpdate({ email: isUser.email }, { token })
     return {
       token,

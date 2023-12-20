@@ -1,41 +1,24 @@
-const { ListNotFood } = require("../../models");
-const { ListFood } = require("../../models");
+const DailyData = require('../models/DailyData');
 
-const getUserData = async (userId) => {
+const saveDataToDatabase = async (userId, dailyCalories, nonRecommendedFoods) => {
   try {
-    const user = await ListNotFood.findOne({ userId }).exec();
-    if (!user) throw new Error("User not found");
+    // Crea un nuevo objeto DailyData y guárdalo en la base de datos
+    const dailyData = new DailyData({
+      userId,
+      dailyCalories,
+      nonRecommendedFoods,
+    });
 
-    return {
-      userNotFound: false,
-      peso: user.peso,
-      altura: user.altura,
-      edad: user.edad,
-      pesoDeseado: user.pesoDeseado,
-      finalWeight: user.finalWeight,
-    };
-  } catch (error) {
-    console.error("Error in getUserData:", error);
-    throw error;
-  }
-};
+    await dailyData.save();
+    console.log('Data saved to database:', dailyData);
 
-const listNotFood = async (finalWeight) => {
-  try {
-    return await ListFood.find({
-      recomendado: false,
-      contenidoGrasas: { $gte: 10 },
-      contenidoAzucar: { $gte: 5 },
-      contenidoSodio: { $gte: 500 },
-      // ... otros criterios nutricionales
-    }).exec();
+    return dailyData;
   } catch (error) {
-    console.error("Error in listNotFood:", error);
+    console.error('Error in saveDataToDatabase:', error);
     throw error;
   }
 };
 
 module.exports = {
-  getUserData,
-  listNotFood,
+  saveDataToDatabase,
 };
