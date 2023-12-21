@@ -1,7 +1,5 @@
 const express = require('express');
-const {
-  deleteProductFromDay,
-} = require('../controllers/deleteProduct/deleteProduct');
+const { deleteProductFromDay } = require('../controllers/day/deleteProduct');
 
 const deleteRouter = express.Router();
 
