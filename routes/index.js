@@ -3,7 +3,7 @@ const express = require('express');
 const caloriasRouter = require("./daily-rate.routes");
 const productsRouter = require('../service/auth/products.routes');
 const authRouter = require('./auth.routes')
-const caloriesPrivateRouter = require("./calories.routes"); 
+const caloriesPrivateRouter = require("./daily-rate.routes"); 
 const indexRouter = express.Router();
 
 module.exports = () => {

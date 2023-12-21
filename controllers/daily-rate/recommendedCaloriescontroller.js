@@ -1,6 +1,6 @@
 // recommendedCaloriesController.js
 
-const { getUserData, getNonRecommendedFoodList } = require("../../service/calorias/recommendedCaloriesService");
+const { getUserData, getNonRecommendedFoodList } = require("../../service/daily-rate/recommendedCaloriesService");
 
 const calculateDailyIntake = (weight, height, age, desiredWeight) => {
   if (typeof weight !== "number" || typeof height !== "number" || typeof age !== "number" || typeof desiredWeight !== "number") {

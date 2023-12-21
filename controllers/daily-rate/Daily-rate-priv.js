@@ -1,4 +1,4 @@
-const { calculateDailyCalories, getNonRecommendedFoods, saveDataToDatabase } = require('../services/caloriesService');
+const { calculateDailyCalories, getNonRecommendedFoods, saveDataToDatabase } = require('../../service/daily-rate/recommendedCaloriesService');
 
 const privateEndpointHandler = async (req, res) => {
   try {
