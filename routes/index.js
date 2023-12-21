@@ -1,6 +1,6 @@
 // routes/index.js
 const express = require('express');
-const caloriasRouter = require("./calorias.routes");
+const caloriasRouter = require("./daily-rate.routes");
 const productsRouter = require('../service/auth/products.routes');
 const authRouter = require('./auth.routes')
 const caloriesPrivateRouter = require("./calories.routes"); 
