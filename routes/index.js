@@ -1,17 +1,18 @@
 // routes/index.js
 const express = require('express');
-const caloriasRouter = require("./daily-rate.routes");
-const productsRouter = require('../service/auth/products.routes');
-const authRouter = require('./auth.routes')
-const caloriesPrivateRouter = require("./daily-rate.routes"); 
+
+const dailyRateRoutes = require('./daily-rate.routes');
+const productsRouter = require('./products.routes');
+const authRouter = require('./auth.routes');
+const dayRouter = require('./days.routes');
+
 const indexRouter = express.Router();
 
 module.exports = () => {
-  indexRouter.use("/calorias", caloriasRouter);
+  indexRouter.use('/daily-rate', dailyRateRoutes);
   indexRouter.use('/products', productsRouter);
   indexRouter.use('/auth', authRouter);
-  indexRouter.use("/calories", caloriesPrivateRouter); 
-  
+  indexRouter.use('/day', dayRouter);
 
   return indexRouter;
 };

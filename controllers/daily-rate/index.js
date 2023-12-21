@@ -1,11 +1,8 @@
-const recommendedCaloriescontroller = require("./recommendedCaloriescontroller");
+const recommendedCaloriescontroller = require('./recommendedCaloriescontroller');
 
-const caloriesprivateService = require("./caloriesprivateService");
-
+const DailyRatePriv = require('./DailyRatePriv');
 
 module.exports = {
-	recommendedCaloriescontroller,
-	caloriesprivateService,
+  recommendedCaloriescontroller,
+  DailyRatePriv,
 };
-
-
