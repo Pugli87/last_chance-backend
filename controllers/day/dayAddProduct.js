@@ -47,6 +47,4 @@ const addProductToDay = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  addProductToDay,
-};
+module.exports = addProductToDay;

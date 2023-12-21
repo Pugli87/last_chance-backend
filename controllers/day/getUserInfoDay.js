@@ -1,5 +1,5 @@
 // pendiente por revisar
-const { Day } = require('../../models/days');
+const { Days } = require('../../models/days');
 
 const createError = require('http-errors');
 
@@ -30,7 +30,7 @@ const getUserInfoPerDay = async (req, res) => {
   }
 
   // Busca un documento 'Day' en la base de datos para el usuario y la fecha especificada
-  const searchForDay = await Day.findOne({
+  const searchForDay = await Days.findOne({
     $and: [{ user_id: userId }, { date: dateString }],
   });
 

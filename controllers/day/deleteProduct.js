@@ -57,6 +57,4 @@ const deleteProductFromDay = async (req, res, next) => {
   }
 };
 
-module.exports = {
-  deleteProductFromDay,
-};
+module.exports = deleteProductFromDay;

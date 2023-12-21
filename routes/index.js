@@ -4,8 +4,6 @@ const express = require('express');
 const productsRouter = require('./products.routes');
 const authRouter = require('./auth.routes');
 const dayRouter = require('./day.routes');
-const deleteRouter = require('./delete.routes');
-const daysRouter = require('./days.routes');
 
 const indexRouter = express.Router();
 
