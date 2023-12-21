@@ -5,7 +5,7 @@ const getDayByDate = async date => {
   return Day.findOne({ date });
 };
 
-// Crea un nuevo día
+// Crea un nuevo día ok
 const createDay = async date => {
   return new Day({ date, eatenProducts: [] }).save();
 };
