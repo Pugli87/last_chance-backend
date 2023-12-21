@@ -1,3 +1,36 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     EatenProduct:
+ *       type: object
+ *       properties:
+ *         productId:
+ *           type: string
+ *         title:
+ *           type: string
+ *         weight:
+ *           type: number
+ *           minimum: 1
+ *           maximum: 3000
+ *       required:
+ *         - productId
+ *         - title
+ *         - weight
+ *
+ *     Day:
+ *       type: object
+ *       properties:
+ *         date:
+ *           type: string
+ *         eatenProducts:
+ *           type: array
+ *           items:
+ *             $ref: '#/components/schemas/EatenProduct'
+ *       required:
+ *         - date
+ *         - eatenProducts
+ */
 const { Schema, model } = require('mongoose');
 
 const eatenProductSchema = new Schema({
