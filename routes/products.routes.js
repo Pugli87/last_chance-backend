@@ -4,5 +4,6 @@ const { products: controller } = require('../controllers');
 const productsRouter = express.Router();
 
 productsRouter.get('/', controller.getProducts);
+productsRouter.get('/:categories', controller.getCategories);
 
 module.exports = productsRouter;
