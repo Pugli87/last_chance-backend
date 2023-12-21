@@ -1,10 +1,8 @@
-// Importa el modelo 'Day' desde el archivo correspondiente en el directorio de modelos
-const { Day } = require('../../models/days');
+// pendiente por revisar
+//const { Day } = require('../../models/days');
 
-// Importa la biblioteca 'http-errors' para generar errores HTTP
 const createError = require('http-errors');
 
-// Define una función asincrónica que maneja la solicitud GET para obtener estadísticas para un día específico
 const getUserInfoPerDay = async (req, res) => {
   // Extrae el parámetro 'day' de los parámetros de la URL y el '_id' del usuario de la solicitud
   const { day: dateString } = req.params;
@@ -49,6 +47,4 @@ const getUserInfoPerDay = async (req, res) => {
   });
 };
 
-// Exporta la función para que pueda ser utilizada en otros archivos
 module.exports = getUserInfoPerDay;
-//
