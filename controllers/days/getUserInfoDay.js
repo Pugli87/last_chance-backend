@@ -1,5 +1,5 @@
 // pendiente por revisar
-//const { Day } = require('../../models/days');
+const { Day } = require('../../models/days');
 
 const createError = require('http-errors');
 
