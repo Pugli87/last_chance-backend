@@ -1,12 +1,11 @@
-const { object, array } = require('joi');
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const userSchema = new Schema(
+const registerSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
-      minlength: 3,
-      maxlength: 254,
+      minLength: 3,
+      maxLength: 254,
       require: true,
     },
     email: {
@@ -18,21 +17,18 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      minlength: 8,
-      maxlength: 100,
+      minLength: 8,
+      maxLength: 100,
       require: true,
     },
     token: {
       type: String,
       default: null,
     },
-    userData: {
-      type: Object,
-    },
   },
   { versionKey: false, timestamps: true },
 );
 
-const User = model('User', userSchema);
+const Register = mongoose.model('Register', registerSchema);
 
-module.exports = User;
+module.exports = Register;
