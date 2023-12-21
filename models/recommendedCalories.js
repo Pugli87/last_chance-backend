@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const listNotFoodSchema = new mongoose.Schema({
+const dailyProfileSchema = new mongoose.Schema({
     userId: { type: String, required: true, unique: true },
     weight: { type: Number, required: true },
     height: { type: Number, required: true },
@@ -8,6 +8,6 @@ const listNotFoodSchema = new mongoose.Schema({
     desiredWeight: { type: Number, required: true },
 });
 
-const ListNotFood = mongoose.model("ListNotFood", listNotFoodSchema);
+const DailyProfile = mongoose.model("DailyProfile", dailyProfileSchema);
 
-module.exports = ListNotFood;
+module.exports = DailyProfile;

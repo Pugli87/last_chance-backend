@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const listFoodSchema = new mongoose.Schema({
+const dailyRateSchema = new mongoose.Schema({
   name: { type: String, required: true },
   finalWeightAmount: { type: Number, required: true },
   fatContent: { type: Number },
@@ -8,6 +8,6 @@ const listFoodSchema = new mongoose.Schema({
   sodiumContent: { type: Number },
 });
 
-const ListFood = mongoose.model("ListFood", listFoodSchema);
+const DailyRate = mongoose.model("DailyRate", dailyRateSchema); 
 
-module.exports = ListFood;
+module.exports = DailyRate; 
