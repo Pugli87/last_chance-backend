@@ -1,10 +1,10 @@
 // controllers/index.js
 const products = require('./products');
 const auth = require('./auth');
-//const days = require('./days');
+const day = require('./day');
 
 module.exports = {
   products,
   auth,
-  //days,
+  day,
 };

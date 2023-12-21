@@ -33,7 +33,7 @@ const daySchema = Schema(
   { versionKey: false, timestamps: true },
 );
 
-const Day = model('days', daySchema, 'days');
+const Days = model('days', daySchema, 'days');
 
 const dayAdd = Joi.object({
   date: Joi.date().required(),
@@ -43,4 +43,4 @@ const dayAdd = Joi.object({
 
 const joiSchema = { dayAdd };
 
-module.exports = { Day, joiSchema };
+module.exports = { Days, joiSchema };

@@ -1,8 +1,12 @@
 const express = require('express');
-const { addProductToDay } = require('../controllers/day/dayAddProduct');
-
+const { day: controller} = require("../controllers");
 const dayRouter = express.Router();
 
-dayRouter.post('/', addProductToDay);
+
+dayRouter.post('/', controller.addProduct );
+dayRouter.delete('/', controller.deleteProduct);
+dayRouter.get('/info', controller.getUserInfoPerDay);
+
 
 module.exports = dayRouter;
+

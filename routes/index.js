@@ -13,8 +13,5 @@ module.exports = () => {
   indexRouter.use('/products', productsRouter);
   indexRouter.use('/auth', authRouter);
   indexRouter.use('/day', dayRouter);
-  indexRouter.use('/delete', deleteRouter);
-  indexRouter.use('/days', daysRouter);
-
   return indexRouter;
 };
