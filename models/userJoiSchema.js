@@ -1,3 +1,4 @@
+
 /**
  * @swagger
  * components:
@@ -46,11 +47,16 @@ const joi = require('joi');
  *         description: Bad request
  */
 
-const userJoiValidations = body => {
+
+
+const registerJoiValidations = body => {
+
   const Schema = joi.object({
-    name: joi.string().required(),
+    name: joi.string().required().min(3).max(20),
     email: joi.string().email().required(),
-    password: joi.string().required(),
+    password: joi.string().required().min(8).messages({
+      'string.min': 'La contraseña debe tener al menos {#limit} caracteres',
+    }),
   });
   return Schema.validate(body);
 };
@@ -64,6 +70,6 @@ const loginJoiValidations = body => {
 };
 
 module.exports = {
-  userJoiValidations,
+  registerJoiValidations,
   loginJoiValidations,
 };

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const User = require('../../models/userSchema');
+const { User } = require('../../models');
 
 const login = async (data) => {
   try {
@@ -32,7 +32,7 @@ const login = async (data) => {
     await User.findOneAndUpdate({ email: isUser.email }, { token })
     return {
       token,
-      isUser,
+      User: isUser,
     }
   } catch (error) {
     console.log("errp", error);

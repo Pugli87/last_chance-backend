@@ -6,6 +6,7 @@ const authRouter = require('./auth.routes');
 const dayRouter = require('./day.routes');
 const deleteRouter = require('./delete.routes');
 const daysRouter = require('./days.routes');
+const userRouter = require('./user.routes');
 
 const indexRouter = express.Router();
 
@@ -15,6 +16,7 @@ module.exports = () => {
   indexRouter.use('/day', dayRouter);
   indexRouter.use('/delete', deleteRouter);
   indexRouter.use('/days', daysRouter);
+  indexRouter.use('/user', userRouter);
 
   return indexRouter;
 };
