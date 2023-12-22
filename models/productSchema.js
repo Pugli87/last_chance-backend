@@ -1,5 +1,27 @@
 const { Schema, model } = require('mongoose');
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Product:
+ *       type: object
+ *       properties:
+ *         categories:
+ *           type: string
+ *         weight:
+ *           type: string
+ *         title:
+ *           type: string
+ *         calories:
+ *           type: string
+ *         groupBloodNotAllowed:
+ *           type: array
+ *       required:
+ *         - categories
+ *         - title
+ */
+
 const productSchema = Schema(
   {
     categories: {
